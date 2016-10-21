@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>The Average Song</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
+		<script src="js/jquery.appear.js"></script>
+	</head>
+
+	<body>
+
+		<audio autoplay>
+		  <source src="sound/gorillaz.mp3" type="audio/mpeg">
+		</audio>
+		<section id="about" class="section1 current" data-section="1">
+			<article class="text">
+				<p>I looked at the Spotify API and analysed over
+				<span>30 million songs</span>
+				for their tempo, signature, key, instrumentalness  and duration.</p>
+
+				<p>Let’s hear the results.</p>
+			</article>
+
+			<img src="img/keys.png" />
+		</section>
+
+		<section id="tempo" class="half section2" data-section="2">
+			<article class="text">
+				<p>The average tempo is <span>120 BPM</span></p>
+			</article>
+			<article class="image">
+			</article>
+
+			<div class="clearfix">
+		</section>
+
+		<section id="signature" class="half section3" data-section="3">
+			<article class="text">
+				<p>in a time signature of <span></span></p>
+			</article>
+			<article class="image">
+			</article>
+
+			<div class="clearfix">
+		</section>
+
+		<section id="key" class="half section4" data-section="4">
+			<article class="text">
+				<p>The most used key is<span>C#m</span></p>
+			</article>
+			<article class="image">
+			</article>
+
+			<div class="clearfix">
+		</section>
+
+		<section id="voice" class="half section5" data-section="5">
+			<article class="text">
+				<p>And could you guess that most  songs have <span>no voice?</span></p>
+			</article>
+			<article class="image">
+			</article>
+
+			<div class="clearfix">
+		</section>
+
+		<section id="length" class="half section6" data-section="6">
+			<article class="text">
+				<p>While the average length is <span>3:20 min</span></p>
+			</article>
+			<article class="image">
+			</article>
+
+			<div class="clearfix">
+		</section>
+
+		<script type="text/javascript">
+			$(document).keydown(function(e){
+				var current = $('section.current').data('section');
+
+				if (e.keyCode == 40) {
+					//SCROLL DOWN
+					var next = current + 1;
+	        		$('.section'+current).removeClass('current');
+	        		$('.section'+next).addClass('current');
+					e.preventDefault();
+	      			$('body').scrollTo('.section'+next, {duration:600}, {queue:true});
+					return false;
+				} 
+		 
+		  		else if (e.keyCode == 38) {
+					//SCROLL UP
+					var prev = current - 1;
+	        		$('.section'+current).removeClass('current');
+	        		$('.section'+prev).addClass('current');
+					e.preventDefault();
+					$('body').scrollTo( '.section' + prev, 600, {queue:true} );
+					return false;
+				}
+			});
+		</script>
+
+		<script type="text/javascript">
+		    $(document.body).on('appear', '#signature', function() {
+				var t = 0
+				setInterval(function () {
+				    if (t < 4) {
+						$('#signature .text span').text(t);
+				    	t += 1;
+					}
+				},300);
+			});
+		</script>
+	</body>
+</html>

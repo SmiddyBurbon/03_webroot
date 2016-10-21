@@ -1,0 +1,167 @@
+@font-face {
+	font-family: 'Avenir';
+	font-weight: 300;
+	src: url('../fonts/AvenirLTStd-Light.otf');
+}
+@font-face {
+	font-family: 'Avenir';
+	font-weight: 900;
+	src: url('../fonts/AvenirLTStd-Black.otf');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.clearfix {
+	clear: both;
+}
+
+body {
+	background-color: #282828;
+	color: #fff;
+	font-size: 2.5rem;
+	line-height: 1.25;
+	font-family: 'Avenir', sans-serif;
+	font-weight: 300;
+}
+
+section {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+section span {
+	display: block;
+	font-weight: 900;
+	font-size: 2em;
+	line-height: 1;
+	padding: 0.5em 0;
+}
+#about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10%;
+}
+#about img {
+	position: absolute;
+	bottom: 2%;
+	-moz-animation-name: fadeOutImage;
+	-moz-animation-iteration-count: 0;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-duration: 1s;
+	-moz-animation-delay: 3s;
+
+	-webkit-animation-name: fadeOutImage;
+	-webkit-animation-iteration-count: 0;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 3s;
+}
+#about span {
+	color: #1ED760;
+}
+#about p {
+	margin-bottom: 1em;
+}
+#about p:last-of-type {
+	margin-bottom: 0;
+}
+
+.half .text {
+	width: 50vw;
+	float: left;
+	padding: 5% 2.5%;
+}
+
+.half .image {
+	width: 50vw;
+	height: 100vw;
+	background-position: right top;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: right;
+}
+
+#tempo .image {
+	background-image: -webkit-image-set(url('../img/tempo.png') 1x, url('../img/tempo@2x.png') 2x);
+}
+#tempo span {
+	color: #9C27B0;
+}
+#signature .image {
+	background-image: -webkit-image-set(url('../img/signature.png') 1x, url('../img/signature@2x.png') 2x);
+}
+#signature span {
+	color: #00BCD4;
+}
+#key .image {
+	background-image: -webkit-image-set(url('../img/key.png') 1x, url('../img/key@2x.png') 2x);
+}
+#key span {
+	color: #FFC107;
+}
+#voice .image {
+	background-image: -webkit-image-set(url('../img/voice.png') 1x, url('../img/voice@2x.png') 2x);
+}
+#voice span {
+	color: #00BFA5;
+}
+#length .image {
+	background-image: -webkit-image-set(url('../img/length.png') 1x, url('../img/length@2x.png') 2x);
+}
+#length span {
+	color: #FF5722;
+}
+
+/* --------------------- ANIMATIONS --------------------- */ 
+@-moz-keyframes fadeOutImage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes fadeOutImage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* --------------------- MEDIA QUERIES --------------------- */ 
+@media screen and (max-device-width: 767px) {
+	body {
+		font-size: 5rem;
+	}
+
+	.half .image {
+		background-position: center bottom;
+		background-size: cover;
+	}
+
+	.half .text {
+		display: flex;
+		align-items: center;
+		padding: 5%;
+	}
+
+	.half .image,
+	.half .text {
+		width: 100vw;
+		height: 50vh;
+		float: none;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    #about img {
+    	opacity: 0;
+    	display: none;
+    }
+}
